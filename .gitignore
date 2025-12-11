@@ -1,0 +1,4 @@
+# Log files
+*.txt
+# Data
+data.csv
