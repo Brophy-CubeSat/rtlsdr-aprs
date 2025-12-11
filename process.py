@@ -1,17 +1,18 @@
 import csv
 import re
+import sys
 
 
 def process_lat_long(val):
     return (val[:-5], val[-5:])
 
 
-def main():
+def main(fd):
     global all_lines
     global new_lines
     new_lines = []
 
-    with open("log.txt") as log:
+    with open(fd) as log:
         all_lines = log.readlines()
 
     for i, l in enumerate(all_lines):
@@ -99,4 +100,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) == 2:
+        main(sys.argv[1])
+    else:
+        print("Please input a file descriptor as a command-line argument")
